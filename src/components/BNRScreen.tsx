@@ -1,3 +1,4 @@
+import { Dialogs } from '@nativescript/core';
 import { RouteProp } from '@react-navigation/core';
 import * as React from 'react';
 import { StyleSheet } from 'react-nativescript';
@@ -10,32 +11,91 @@ type BNRScreenProps = {
   navigation: FrameNavigationProp<MainStackParamList, 'BNR'>;
 };
 
-export function BNRScreen({ navigation, route }: BNRScreenProps) {
+export function BNRScreen({ navigation }: BNRScreenProps) {
   return (
     <flexboxLayout style={styles.container}>
-      <label style={styles.text}>BNR Errors</label>
-      <label style={styles.text}>Message: {route.params.message}</label>
-      <button style={styles.button} onTap={() => navigation.goBack()}>
-        Go back
-      </button>
+      <flexboxLayout style={styles.header}>
+        <button
+          style={styles.backButton}
+          onTap={() => navigation.navigate('Main')}
+        >
+          ❮❮
+        </button>
+        <label style={styles.label}>BNR</label>
+      </flexboxLayout>
+      <flexboxLayout style={styles.buttonContainer}>
+        <button
+          style={styles.button}
+          onTap={() => navigation.navigate('TopModule')}
+        >
+          Top Module
+        </button>
+        <button
+          style={styles.button}
+          onTap={() => navigation.navigate('CashBox')}
+        >
+          CashBox
+        </button>
+        <button
+          style={styles.button}
+          onTap={() => navigation.navigate('Recycler')}
+        >
+          Recyler
+        </button>
+      </flexboxLayout>
     </flexboxLayout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#eceff4',
     height: '100%',
     flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor: 'yellow',
+    justifyContent: 'flex-start',
+    padding: 20,
+    alignItems: 'center',
   },
-  text: {
-    textAlignment: 'center',
-    fontSize: 24,
-    color: 'black',
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '100%',
+    //marginBottom: 20,
+    padding: 20,
+  },
+  backButton: {
+    alignItems: 'center',
+    fontSize: 14,
+    color: 'white',
+    backgroundColor: '#7b838e',
+    borderRadius: 4,
+    padding: 0,
+    marginRight: 10,
+    width: 40,
+    height: 40,
+  },
+  label: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 32,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
   },
   button: {
     fontSize: 24,
-    color: '#2e6ddf',
+    color: 'white',
+    backgroundColor: '#7b838e',
+    width: 150,
+    height: 150,
+    margin: 10,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

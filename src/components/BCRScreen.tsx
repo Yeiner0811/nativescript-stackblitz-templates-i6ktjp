@@ -13,8 +13,8 @@ type BCRScreenProps = {
 export function BCRScreen({ navigation, route }: BCRScreenProps) {
   return (
     <flexboxLayout style={styles.container}>
-      <label style={styles.text}>BNR Errors</label>
-      <label style={styles.text}>Message: {route.params.message}</label>
+      <label style={styles.text}>BCR Errors</label>
+      
       <button style={styles.button} onTap={() => navigation.goBack()}>
         Go back
       </button>
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor: 'yellow',
+    justifyContent: 'flex-start',
+    backgroundColor: '#eceff4',
   },
   text: {
     textAlignment: 'center',
