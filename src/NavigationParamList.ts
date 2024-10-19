@@ -3,10 +3,25 @@
  */
 export type MainStackParamList = {
   Main?: {};
-  BNR: {
-    message: string;
+  BNR?: {
+    //message: string;
   };
-  BCR: {
-    message: string;
+  BCR?: {
+    //message: string;
+  };
+  Printer?: {
+    //message: string;
+  };
+  IOboard?: {
+   // message: string;
+  };
+  TopModule?: {
+    //message: string;
+  };
+  CashBox?: {
+   // message: string;
+  };
+  Recycler?: {
+    //message: string;
   };
 };
